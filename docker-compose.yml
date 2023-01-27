@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=javafxdb
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=puceTec1234
+    ports:
+      - 5432:5432
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=jnavarrete@icesasoftcorp.com
+      - PGADMIN_DEFAULT_PASSWORD=puceTec123
+    ports:
+      - 5050:80
+    volumes:
+      - pgadmin:/srv/pgadmin
+volumes:
+  pgdata:
+  pgadmin:
