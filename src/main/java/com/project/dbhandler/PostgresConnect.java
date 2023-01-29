@@ -11,7 +11,7 @@ public class PostgresConnect {
     private final String PASSWORD = "puceTec1234";
 
         /**
-         * Parameters to establish connection to PostgreSQL
+         * Parameters to connection to PostgreSQL
          * @return
          */
         public Connection getConnection() {
@@ -21,7 +21,7 @@ public class PostgresConnect {
             Class.forName("org.postgresql.Driver");
             String url = "jdbc:postgresql://"+ HOST + ":" + PORT + "/" + DB;
             connection = DriverManager.getConnection(url, USER, PASSWORD);
-            System.out.println("Conexión Establecida");
+            System.out.println("Database Connect");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

@@ -17,6 +17,7 @@ public class StudentListController {
     @FXML private TableColumn firstNameCol;
     @FXML private TableColumn lastNameCol;
     @FXML private TableColumn emailCol;
+    @FXML private TableColumn birthDateCol;
     @FXML private TableColumn ageCol;
     @FXML private TableColumn levelCol;
 
@@ -30,6 +31,7 @@ public class StudentListController {
         this.firstNameCol.setCellValueFactory(new PropertyValueFactory<Student, String>("firstName"));
         this.lastNameCol.setCellValueFactory(new PropertyValueFactory<Student, String>("lastName"));
         this.emailCol.setCellValueFactory(new PropertyValueFactory<Student, String>("email"));
+        this.birthDateCol.setCellValueFactory(new PropertyValueFactory<Student, Integer>("birthDate"));
         this.ageCol.setCellValueFactory(new PropertyValueFactory<Student, Integer>("age"));
         this.levelCol.setCellValueFactory(new PropertyValueFactory<Student, Integer>("level"));
         this.studentsTableView.setItems(data.getStudents());

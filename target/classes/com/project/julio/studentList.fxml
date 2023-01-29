@@ -74,6 +74,7 @@
                 <TableColumn fx:id="firstNameCol" prefWidth="75.0" text="Nombre" />
                   <TableColumn fx:id="lastNameCol" prefWidth="75.0" text="Apellido" />
                   <TableColumn fx:id="emailCol" prefWidth="75.0" text="E-Mail" />
+                  <TableColumn fx:id="birthDateCol" prefWidth="75.0" text="Fecha de Nacimiento" />
                   <TableColumn fx:id="ageCol" prefWidth="75.0" text="Edad" />
                   <TableColumn fx:id="levelCol" prefWidth="75.0" text="Nivel" />
               </columns>
