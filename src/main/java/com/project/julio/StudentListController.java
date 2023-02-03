@@ -1,16 +1,19 @@
 package com.project.julio;
 
 import java.io.IOException;
+import java.time.LocalDate;
 
 import com.project.models.Student;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class StudentListController {
-    DataSingleton data  = DataSingleton.getInstance();
+    
+    private ObservableList<Student> studentList;
 
     @FXML private TableView studentsTableView;
     @FXML private TableColumn idCol;
@@ -31,10 +34,10 @@ public class StudentListController {
         this.firstNameCol.setCellValueFactory(new PropertyValueFactory<Student, String>("firstName"));
         this.lastNameCol.setCellValueFactory(new PropertyValueFactory<Student, String>("lastName"));
         this.emailCol.setCellValueFactory(new PropertyValueFactory<Student, String>("email"));
-        this.birthDateCol.setCellValueFactory(new PropertyValueFactory<Student, Integer>("birthDate"));
+        this.birthDateCol.setCellValueFactory(new PropertyValueFactory<Student, LocalDate>("birthDate"));
         this.ageCol.setCellValueFactory(new PropertyValueFactory<Student, Integer>("age"));
         this.levelCol.setCellValueFactory(new PropertyValueFactory<Student, Integer>("level"));
-        this.studentsTableView.setItems(data.getStudents());
+        this.studentsTableView.setItems(Student.loadStudents());
     }
 
     /**
@@ -63,7 +66,9 @@ public class StudentListController {
         Student selectedStudent = (Student) studentsTableView.getSelectionModel().getSelectedItem();
         if(selectedStudent != null) {
             String studentID = selectedStudent.getId();
+            Student.deleteStudent(selectedStudent);
         }
-        DataSingleton.getInstance().deleteStudent(selectedStudent);
+        this.studentsTableView.setItems(Student.loadStudents());
+        
     }
 }

@@ -13,8 +13,6 @@ import javafx.scene.control.TextField;
 
 public class StudentFormController {
     
-    DataSingleton data = DataSingleton.getInstance();
-    
     @FXML TextField txtStudentID;
     @FXML TextField txtStudentName;
     @FXML TextField txtStudentLastName;
@@ -49,7 +47,6 @@ public class StudentFormController {
             Integer.parseInt(cbStudentLevel.getValue().toString()));
             
         student.saveStudent();
-        data.addStudent(student);
         App.setRoot("studentList");
     }
 
